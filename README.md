@@ -1,4 +1,4 @@
-# TheBreakfastClub | Badminton Club Management
+# MSW Badminton | Badminton Club Management
 
 A professional-grade badminton club management application built with **Next.js 15**, **Tailwind CSS**, and **Firebase**. Designed for live court queuing, deterministic matchmaking, and daily financial tracking.
 
@@ -36,7 +36,7 @@ Our deterministic engine ensures fair and socially diverse games:
 ### 🎨 Design & UX
 - **Responsive Fluid Typography**: Uses CSS `clamp()` to ensure perfect readability from mobile to large command center displays.
 - **Dark Mode Support**: Full theme awareness with high-contrast UI and desaturated colors for low-light court environments.
-- **Branding**: Customizable club logo and default winning scores.
+- **Scoring Defaults**: Configurable default winning scores.
 
 ## 🛠️ Tech Stack
 - **Framework**: Next.js 15 (App Router)
@@ -46,4 +46,4 @@ Our deterministic engine ensures fair and socially diverse games:
 - **Animations**: Tailwind CSS Animate + Custom Transitions
 
 ---
-*Built with ❤️ for TheBreakfastClub Badminton Community.*
+*Built with ❤️ for MSW Badminton Community.*

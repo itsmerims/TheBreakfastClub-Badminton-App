@@ -1,4 +1,4 @@
-# **App Name**: ShuttleQueue
+# **App Name**: MSW Badminton
 
 ## Core Features:
 
@@ -12,11 +12,11 @@
 
 ## Style Guidelines:
 
-- Main background color: A soft, warm beige (#ece6da) to provide a light and inviting base for the interface, matching the logo's primary background.
-- Primary accent color: A vibrant, warm reddish-orange (#e3614d) for interactive elements like buttons, links, active states, and key highlights, providing a distinct contrast against the background.
+- Main background color: A crisp, light blue-tinted neutral (#f8fbff) to provide a clean base for the interface.
+- Primary accent color: A vivid athletic blue (#2563eb) for interactive elements like buttons, links, active states, and key highlights.
 - Text color: A dark charcoal grey (#333333) for primary text, ensuring excellent readability and contrast against the main background color.
 - Secondary text and subtle UI elements: A medium grey (#777777) for less prominent text, labels, and borders, offering a softer visual hierarchy.
 - Headline and body font: 'Inter' (sans-serif) for its modern, clear, and neutral aesthetic, ensuring excellent readability for all dynamic content and real-time updates.
-- Utilize modern, clean, and minimalist icons with a sporting motif to maintain a sleek, functional, and visually appealing interface, complementing the logo's style.
+- Utilize modern, clean, and minimalist icons with a sporting motif to maintain a sleek, functional, and visually appealing interface.
 - A responsive, intuitive dashboard-style layout emphasizing clear data visualization for real-time queue status and easy access to core features across all device sizes.
 - Incorporate smooth, subtle animations for state changes, queue updates, and transitions to enhance the user experience and convey responsiveness in the dynamic interface.

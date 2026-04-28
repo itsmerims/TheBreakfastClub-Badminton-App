@@ -71,20 +71,20 @@ export default function RankingsPage() {
       {data.map((player, i) => (
         <Card key={player.id} className={cn(
           "border-2 transition-all hover:scale-[1.005] min-w-0",
-          i === 0 ? "border-yellow-500 bg-yellow-500/5" : "border-border"
+          i === 0 ? "border-primary bg-primary/5" : "border-border"
         )}>
           <CardContent className="flex items-center justify-between p-3 gap-2">
             <div className="flex items-center gap-3 min-w-0 flex-1">
               <span className={cn(
                 "font-black text-2xl italic min-w-[24px] text-center shrink-0",
-                i === 0 ? "text-yellow-500" : i === 1 ? "text-slate-400" : i === 2 ? "text-amber-600" : "text-muted-foreground/20"
+                i === 0 ? "text-primary" : i === 1 ? "text-sky-500" : i === 2 ? "text-blue-700" : "text-muted-foreground/20"
               )}>
                 {i + 1}
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-black text-compact flex items-center gap-1.5 truncate">
                   {player.name}
-                  {i === 0 && <Star className="h-3 w-3 fill-yellow-500 text-yellow-500 shrink-0" />}
+                  {i === 0 && <Star className="h-3 w-3 fill-primary text-primary shrink-0" />}
                 </p>
                 <Badge variant="outline" className={cn("text-[8px] font-black uppercase px-1 h-3.5 mt-0.5 truncate", getSkillColor(player.skillLevel))}>
                   {SKILL_LEVELS_SHORT[player.skillLevel]}
@@ -123,7 +123,7 @@ export default function RankingsPage() {
     <div className="container mx-auto px-4 py-6 space-y-6 max-w-5xl">
       <header className="space-y-0.5 text-center sm:text-left">
         <h1 className="flex items-center justify-center sm:justify-start gap-3">
-          <Trophy className="h-8 w-8 text-yellow-500" /> Leaderboards
+          <Trophy className="h-8 w-8 text-primary" /> Leaderboards
         </h1>
         <p className="text-tiny text-muted-foreground font-black uppercase tracking-widest opacity-60">Hall of fame based on tournament stats</p>
       </header>

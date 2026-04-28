@@ -8,8 +8,8 @@ import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { Header } from '@/components/layout/Header';
 
 export const metadata: Metadata = {
-  title: 'TheBreakfastClub | Badminton Club',
-  description: 'Badminton court queuing and matching for TheBreakfastClub.',
+  title: 'MSW Badminton | Badminton Club',
+  description: 'Badminton court queuing and matching for MSW Badminton.',
   icons: {
     icon: '/favicon.svg',
   },

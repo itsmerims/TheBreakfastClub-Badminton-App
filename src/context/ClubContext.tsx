@@ -11,7 +11,6 @@ interface ClubContextType {
   matches: Match[];
   fees: Fee[];
   paymentMethods: PaymentMethod[];
-  clubLogo: string | null;
   defaultWinningScore: number;
   autoAdvanceEnabled: boolean;
   addPlayer: (player: Omit<Player, 'id' | 'wins' | 'gamesPlayed' | 'partnerHistory' | 'status' | 'improvementScore' | 'totalPlayTimeMinutes' | 'lastAvailableAt'>) => void;
@@ -30,7 +29,6 @@ interface ClubContextType {
   togglePayment: (date: string, playerId: string) => void;
   addPaymentMethod: (name: string, imageData: string) => void;
   deletePaymentMethod: (id: string) => void;
-  setClubLogo: (imageUrl: string | null) => void;
   setDefaultWinningScore: (score: number) => void;
   setAutoAdvanceEnabled: (enabled: boolean) => void;
   resetDailyBoard: () => void;
@@ -46,7 +44,6 @@ const STORAGE_KEYS = {
   MATCHES: 'tbc_matches',
   FEES: 'tbc_fees',
   PAYMENT_METHODS: 'tbc_payment_methods',
-  LOGO: 'tbc_logo',
   WINNING_SCORE: 'tbc_winning_score',
   AUTO_ADVANCE: 'tbc_auto_advance'
 };
@@ -57,7 +54,6 @@ export function ClubProvider({ children }: { children: ReactNode }) {
   const [matches, setMatches] = useState<Match[]>([]);
   const [fees, setFees] = useState<Fee[]>([]);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
-  const [clubLogo, setClubLogoState] = useState<string | null>(null);
   const [defaultWinningScore, setDefaultWinningScoreState] = useState<number>(21);
   const [autoAdvanceEnabled, setAutoAdvanceEnabledState] = useState<boolean>(true);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -74,7 +70,6 @@ export function ClubProvider({ children }: { children: ReactNode }) {
     setMatches(load(STORAGE_KEYS.MATCHES, []));
     setFees(load(STORAGE_KEYS.FEES, []));
     setPaymentMethods(load(STORAGE_KEYS.PAYMENT_METHODS, []));
-    setClubLogoState(localStorage.getItem(STORAGE_KEYS.LOGO));
     setDefaultWinningScoreState(parseInt(localStorage.getItem(STORAGE_KEYS.WINNING_SCORE) || '21'));
     
     const savedAutoAdvance = localStorage.getItem(STORAGE_KEYS.AUTO_ADVANCE);
@@ -96,9 +91,7 @@ export function ClubProvider({ children }: { children: ReactNode }) {
     localStorage.setItem(STORAGE_KEYS.PAYMENT_METHODS, JSON.stringify(paymentMethods));
     localStorage.setItem(STORAGE_KEYS.WINNING_SCORE, defaultWinningScore.toString());
     localStorage.setItem(STORAGE_KEYS.AUTO_ADVANCE, JSON.stringify(autoAdvanceEnabled));
-    if (clubLogo) localStorage.setItem(STORAGE_KEYS.LOGO, clubLogo);
-    else localStorage.removeItem(STORAGE_KEYS.LOGO);
-  }, [players, courts, matches, fees, paymentMethods, clubLogo, defaultWinningScore, autoAdvanceEnabled, isLoaded]);
+  }, [players, courts, matches, fees, paymentMethods, defaultWinningScore, autoAdvanceEnabled, isLoaded]);
 
   const generateId = () => Math.random().toString(36).substr(2, 9);
 
@@ -400,10 +393,6 @@ export function ClubProvider({ children }: { children: ReactNode }) {
     setPaymentMethods(prev => prev.filter(pm => pm.id !== id));
   };
 
-  const setClubLogo = (imageUrl: string | null) => {
-    setClubLogoState(imageUrl);
-  };
-
   const setDefaultWinningScore = (score: number) => {
     setDefaultWinningScoreState(score);
   };
@@ -432,22 +421,21 @@ export function ClubProvider({ children }: { children: ReactNode }) {
     setMatches([]);
     setFees([]);
     setPaymentMethods([]);
-    setClubLogoState(null);
     setDefaultWinningScoreState(21);
     setAutoAdvanceEnabledState(true);
     localStorage.clear();
   };
 
   if (!isLoaded) {
-    return <SplashScreen logo={clubLogo} />;
+    return <SplashScreen />;
   }
 
   return (
     <ClubContext.Provider value={{
-      players, courts, matches, fees, paymentMethods, clubLogo, defaultWinningScore, autoAdvanceEnabled,
+      players, courts, matches, fees, paymentMethods, defaultWinningScore, autoAdvanceEnabled,
       addPlayer, updatePlayer, deletePlayer, addCourt, deleteCourt,
       startMatch, startTimer, updateMatchScore, endMatch, swapPlayer, assignMatchToCourt, createCourtAndAssignMatch, updateFee, togglePayment,
-      addPaymentMethod, deletePaymentMethod, resetDailyBoard, wipeAllData, setClubLogo, deleteMatch, setDefaultWinningScore, setAutoAdvanceEnabled
+      addPaymentMethod, deletePaymentMethod, resetDailyBoard, wipeAllData, deleteMatch, setDefaultWinningScore, setAutoAdvanceEnabled
     }}>
       {children}
     </ClubContext.Provider>

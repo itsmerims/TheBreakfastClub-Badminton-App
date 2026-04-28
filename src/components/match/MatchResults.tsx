@@ -33,7 +33,7 @@ export function MatchResults({ matches, players, limit }: MatchResultsProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-4">
-        <Medal className="h-5 w-5 text-yellow-500" />
+        <Medal className="h-5 w-5 text-primary" />
         <h2 className="text-lg font-bold">Recent Match Results</h2>
       </div>
       <div className="grid gap-3">

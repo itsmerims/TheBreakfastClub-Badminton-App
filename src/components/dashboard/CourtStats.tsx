@@ -60,7 +60,7 @@ export function CourtStats() {
         label="Queue Size" 
         value="12" 
         subValue="Active teams" 
-        color="bg-orange-500" 
+        color="bg-primary" 
       />
     </div>
   );

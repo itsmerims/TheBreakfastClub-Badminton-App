@@ -2,12 +2,6 @@
 {
   "placeholderImages": [
     {
-      "id": "logo",
-      "description": "Default branding icon",
-      "imageUrl": "",
-      "imageHint": "badminton icon"
-    },
-    {
       "id": "player-avatar",
       "description": "Default player avatar",
       "imageUrl": "",

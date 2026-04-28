@@ -1,7 +1,7 @@
 
 'use server';
 /**
- * @fileOverview BreakfastClub AI Commissioner Matchmaking.
+ * @fileOverview MSW Badminton AI Commissioner Matchmaking.
  * Structured to receive club data and return perfectly balanced matches 
  * while strictly obeying partner history and skill gap rules.
  */
@@ -46,7 +46,7 @@ const matchSuggestionPrompt = ai.definePrompt({
   name: 'matchSuggestionPrompt',
   input: { schema: MatchSuggestionInputSchema },
   output: { schema: MatchSuggestionOutputSchema },
-  prompt: `Act as the "BreakfastClub AI Commissioner," an expert badminton tournament director. 
+  prompt: `Act as the "MSW Badminton AI Commissioner," an expert badminton tournament director. 
 Your goal is to generate a fair, competitive, and socially diverse doubles match.
 
 ---

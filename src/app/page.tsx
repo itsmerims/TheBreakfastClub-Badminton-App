@@ -350,9 +350,9 @@ export default function HomePage() {
         >
           <div className="p-3 bg-card border-b flex items-center justify-between h-14">
             <h2 className="text-tiny font-black uppercase tracking-widest flex items-center gap-2">
-              <ListOrdered className="h-4 w-4 text-orange-500" /> Queue
+              <ListOrdered className="h-4 w-4 text-primary" /> Queue
             </h2>
-            <Badge variant="secondary" className="font-black h-6 px-2.5 text-compact bg-orange-500 text-white border-none">{waitingMatches.length}</Badge>
+            <Badge variant="secondary" className="font-black h-6 px-2.5 text-compact bg-primary text-primary-foreground border-none">{waitingMatches.length}</Badge>
           </div>
           <ScrollArea className="flex-1">
             <div className="p-2 space-y-3 pb-24">
@@ -381,10 +381,10 @@ export default function HomePage() {
                   key={match.id} 
                   draggable 
                   onDragStart={(e) => onDragStartMatch(e, match.id)}
-                  className="border-2 border-orange-500/30 bg-orange-500/5 cursor-grab active:cursor-grabbing hover:border-orange-500 transition-all shadow-sm overflow-hidden group relative"
+                  className="border-2 border-primary/30 bg-primary/5 cursor-grab active:cursor-grabbing hover:border-primary transition-all shadow-sm overflow-hidden group relative"
                 >
                   <div className="absolute top-1 left-1 z-10">
-                    <Badge variant="secondary" className="bg-orange-500 text-white text-[9px] h-4 px-1 font-black">
+                    <Badge variant="secondary" className="bg-primary text-primary-foreground text-[9px] h-4 px-1 font-black">
                        #{index + 1}
                     </Badge>
                   </div>
@@ -397,8 +397,8 @@ export default function HomePage() {
                     <Trash2 className="h-3.5 w-3.5" />
                   </Button>
                   <div className="p-3 pt-6 flex items-center justify-between gap-2">
-                    <div className="flex flex-col space-y-1.5 flex-1 min-w-0 border-l-4 border-orange-500/20 pl-2">
-                      <span className="text-[8px] font-black uppercase text-orange-500 opacity-50">T1</span>
+                    <div className="flex flex-col space-y-1.5 flex-1 min-w-0 border-l-4 border-primary/20 pl-2">
+                      <span className="text-[8px] font-black uppercase text-primary opacity-50">T1</span>
                       {match.teamA.map(id => {
                         const p = players.find(player => player.id === id);
                         return (
@@ -418,8 +418,8 @@ export default function HomePage() {
                       })}
                     </div>
                     <div className="text-[9px] font-black opacity-30 px-1 shrink-0">VS</div>
-                    <div className="flex flex-col space-y-1.5 flex-1 min-w-0 items-end text-right border-r-4 border-orange-500/20 pr-2">
-                      <span className="text-[8px] font-black uppercase text-orange-500 opacity-50">T2</span>
+                    <div className="flex flex-col space-y-1.5 flex-1 min-w-0 items-end text-right border-r-4 border-primary/20 pr-2">
+                      <span className="text-[8px] font-black uppercase text-primary opacity-50">T2</span>
                       {match.teamB.map(id => {
                         const p = players.find(player => player.id === id);
                         return (
@@ -675,7 +675,7 @@ export default function HomePage() {
         <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle className="text-lg font-black uppercase flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-yellow-500" /> Confirm Winner
+              <Trophy className="h-5 w-5 text-primary" /> Confirm Winner
             </DialogTitle>
           </DialogHeader>
           <div className="space-y-6 py-4">

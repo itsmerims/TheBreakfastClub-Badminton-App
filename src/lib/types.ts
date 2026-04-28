@@ -33,23 +33,23 @@ export const getSkillColor = (level: number) => {
       // Beginner (Beg) → #9CA3AF (neutral gray)
       return "bg-[#9CA3AF] text-slate-900 border-none font-bold";
     case 2: 
-      // Advanced Beginner (Adv Beg) → #0F766E (deep teal)
-      return "bg-[#0F766E] text-white border-none font-bold";
+      // Advanced Beginner (Adv Beg) - deep cyan
+      return "bg-[#0891B2] text-white border-none font-bold";
     case 3: 
-      // Low Intermediate (Low Int) → #15803D (darker green)
-      return "bg-[#15803D] text-white border-none font-bold";
+      // Low Intermediate (Low Int) - sky blue
+      return "bg-[#0284C7] text-white border-none font-bold";
     case 4: 
-      // Mid Intermediate (Mid Int) → #CA8A04 (darker yellow/gold)
-      return "bg-[#CA8A04] text-slate-900 border-none font-bold";
+      // Mid Intermediate (Mid Int) - strong blue
+      return "bg-[#2563EB] text-white border-none font-bold";
     case 5: 
-      // Upper Intermediate (Up Int) → #EA580C (strong orange)
-      return "bg-[#EA580C] text-white border-none font-bold";
+      // Upper Intermediate (Up Int) - deep blue
+      return "bg-[#1D4ED8] text-white border-none font-bold";
     case 6: 
-      // Advanced (Adv) → #DC2626 (strong red)
-      return "bg-[#DC2626] text-white border-none font-bold";
+      // Advanced (Adv) - navy
+      return "bg-[#1E3A8A] text-white border-none font-bold";
     case 7: 
-      // Expert (Exp) → #7C3AED (deep purple)
-      return "bg-[#7C3AED] text-white border-none font-bold";
+      // Expert (Exp) - midnight blue
+      return "bg-[#172554] text-white border-none font-bold";
     default: 
       return "bg-muted text-muted-foreground border-none font-bold";
   }

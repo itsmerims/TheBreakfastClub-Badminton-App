@@ -16,17 +16,15 @@ import Image from 'next/image';
 export default function SettingsPage() {
   const { 
     paymentMethods, addPaymentMethod, deletePaymentMethod, resetDailyBoard, 
-    wipeAllData, setClubLogo, clubLogo, defaultWinningScore, setDefaultWinningScore,
+    wipeAllData, defaultWinningScore, setDefaultWinningScore,
     autoAdvanceEnabled, setAutoAdvanceEnabled
   } = useClub();
   const { theme, toggleTheme } = useTheme();
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const logoInputRef = useRef<HTMLInputElement>(null);
 
   const [newMethodName, setNewMethodName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
-  const [isLogoUploading, setIsLogoUploading] = useState(false);
 
   const processAndUpload = (file: File, callback: (data: string) => void) => {
     const reader = new FileReader();
@@ -76,18 +74,6 @@ export default function SettingsPage() {
     }
   };
 
-  const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setIsLogoUploading(true);
-      processAndUpload(e.target.files[0], (data) => {
-        setClubLogo(data);
-        if (logoInputRef.current) logoInputRef.current.value = '';
-        setIsLogoUploading(false);
-        toast({ title: "Club Logo Updated" });
-      });
-    }
-  };
-
   const triggerFileUpload = () => {
     if (!newMethodName) {
       toast({ title: "Name required", description: "Enter a name before uploading.", variant: "destructive" });
@@ -114,7 +100,7 @@ export default function SettingsPage() {
         <h1 className="text-3xl font-black uppercase tracking-tighter flex items-center gap-2">
           <SettingsIcon className="h-8 w-8 text-primary" /> Settings
         </h1>
-        <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest opacity-60">System configuration & branding</p>
+        <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest opacity-60">System configuration</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -138,28 +124,6 @@ export default function SettingsPage() {
                   </div>
                 </div>
                 <Switch checked={theme === 'dark'} onCheckedChange={toggleTheme} />
-              </div>
-              
-              <div className="space-y-2 pt-2">
-                <Label className="text-[10px] font-black uppercase opacity-60">Club Logo</Label>
-                <div className="flex items-center gap-4 p-4 bg-secondary/10 rounded-xl border-2 border-dashed">
-                  <div className="relative h-16 w-16 rounded-lg border bg-white overflow-hidden shadow-sm shrink-0">
-                    <Image 
-                      src={clubLogo || "/src/assets/image/tbc_logo_loading.png"} 
-                      alt="Club Logo" 
-                      fill 
-                      className="object-cover p-1" 
-                    />
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <p className="text-[9px] font-bold uppercase text-muted-foreground">Upload your club's official branding</p>
-                    <input type="file" ref={logoInputRef} className="hidden" accept="image/*" onChange={handleLogoChange} />
-                    <Button size="sm" variant="outline" className="w-full h-8 text-[9px] font-black uppercase" onClick={() => logoInputRef.current?.click()} disabled={isLogoUploading}>
-                      {isLogoUploading ? <Loader2 className="h-3 w-3 animate-spin mr-1" /> : <Upload className="h-3 w-3 mr-1" />}
-                      Change Logo
-                    </Button>
-                  </div>
-                </div>
               </div>
             </CardContent>
           </Card>
